@@ -3,35 +3,23 @@ import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Alert, SafeAreaVi
 import { Calendar, Droplet, Heart, Moon, Download, TrendingUp, Activity, Zap } from 'lucide-react-native';
 import { colors, fonts, fontSizes, borderRadius } from '../constants';
 import useTheme from '../hooks/useTheme';
-import SQLiteService from '../services/SQLiteService';
 import { useAlert } from '../contexts/AlertContext';
+import { useSelector } from 'react-redux';
 
 const Insights = () => {
     const { theme, isDarkMode } = useTheme();
     const { showAlert } = useAlert();
-    const [userConfig, setUserConfig] = useState(null);
-
-    useEffect(() => {
-        const fetchUserConfig = async () => {
-            try {
-                const config = await SQLiteService.getUserConfig();
-                setUserConfig(config);
-            } catch (error) {
-                console.error('Error fetching user config:', error);
-            }
-        };
-        fetchUserConfig();
-    }, []);
+    const user = useSelector(state => state.user.user);
 
     const showFeatureAlert = () => {
         showAlert({ type: 'info', title: 'Feature Not Available', message: 'This feature is coming soon!' })
     };
 
     const quickInsightItems = [
-        { icon: Calendar, color: theme.primary, label: 'Average Cycle', value: userConfig ? `${userConfig.averageCycleLength} days` : 'Loading...' },
+        { icon: Calendar, color: theme.primary, label: 'Average Cycle', value: `${user.averageCycleLength} days` },
         { icon: Droplet, color: isDarkMode ? theme.secondaryLight : theme.secondary, label: 'Average Flow', value: 'Moderate' },
         { icon: Heart, color: theme.mutedForeground, label: 'Fertile Window', value: '5 days' },
-        { icon: Moon, color: isDarkMode ? theme.accentLight : theme.accent, label: 'Avg. Period Length', value: userConfig ? `${userConfig.averagePeriodDuration} days` : 'Loading...' },
+        { icon: Moon, color: isDarkMode ? theme.accentLight : theme.accent, label: 'Avg. Period Length', value: `${user.averagePeriodDuration} days` },
     ];
 
     const additionalFeatures = [

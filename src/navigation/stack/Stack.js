@@ -19,6 +19,7 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/features/userSlice';
 import { setDailyTip } from '../../redux/features/dailyTipSlice';
 import { healthTips } from '../../constants';
+import { setNotes } from '../../redux/features/notesSlice';
 
 const Stack = createStackNavigator();
 
@@ -58,6 +59,7 @@ function AppStack() {
         try {
             const user = await SQLiteService.getUser();
             const notes = await SQLiteService.getNotes();
+            dispatch(setNotes(notes));
             const menstrualCycles = await SQLiteService.getMenstrualCycles();
             const lastPeriodStartDate = menstrualCycles.length ? menstrualCycles[menstrualCycles.length - 1].startDate : null;
             dispatch(setUser({ user: { ...user, lastPeriodStartDate }, token: await StorageService.getValue('token') }));

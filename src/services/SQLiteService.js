@@ -28,9 +28,7 @@ const SQLiteService = {
             `);
             tx.executeSql(`
                 CREATE TABLE IF NOT EXISTS notes (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    content TEXT,
-                    createdAt TEXT
+                    content TEXT
                 );
             `);
         });
@@ -98,8 +96,8 @@ const SQLiteService = {
                     const insertPromises = notes.map(note => {
                         return new Promise((resolveInsert, rejectInsert) => {
                             tx.executeSql(
-                                `INSERT INTO notes (content, createdAt) VALUES (?, ?);`,
-                                [note.content, note.createdAt],
+                                `INSERT INTO notes (content) VALUES (?);`,
+                                [note],
                                 (_, result) => resolveInsert(result),
                                 (_, error) => rejectInsert(error)
                             );
@@ -122,7 +120,7 @@ const SQLiteService = {
                     (_, { rows }) => {
                         const notes = [];
                         for (let i = 0; i < rows.length; i++) {
-                            notes.push(rows.item(i));
+                            notes.push(rows.item(i).content);
                         }
                         resolve(notes);
                     },

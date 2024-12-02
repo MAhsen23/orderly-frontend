@@ -1,35 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import { X, Plus, Save, Trash2 } from 'lucide-react-native';
-import { fonts, fontSizes, borderRadius, colors } from '../../constants';
+import { fonts, fontSizes, borderRadius } from '../../constants';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNotes } from '../../redux/features/notesSlice';
+import SQLiteService from '../../services/SQLiteService';
 
-const NotesModal = ({ visible, onClose, onSave, theme, savedNotes }) => {
-    const [notes, setNotes] = useState([]);
+const NotesModal = ({ visible, onClose, theme }) => {
+    const dispatch = useDispatch();
+    const { notes } = useSelector(state => state.notes);
+    const [localNotes, setLocalNotes] = useState([]);
 
     useEffect(() => {
-        if (savedNotes && savedNotes.length > 0) {
-            setNotes(savedNotes.map((text, index) => ({ id: index + 1, text })));
-        } else {
-            setNotes([{ id: 1, text: '' }]);
-        }
-    }, [savedNotes]);
+        setLocalNotes(notes.length > 0 ? [...notes] : ['']);
+    }, [visible]);
 
-    const addNote = () => {
-        if (notes.length < 5) {
-            setNotes([...notes, { id: Date.now(), text: '' }]);
+    const handleAddNote = () => {
+        if (localNotes.length < 5) {
+            setLocalNotes([...localNotes, '']);
         }
     };
 
-    const updateNote = (id, text) => {
-        setNotes(notes.map(note => note.id === id ? { ...note, text } : note));
+    const handleUpdateNote = (index, text) => {
+        const updatedNotes = [...localNotes];
+        updatedNotes[index] = text;
+        setLocalNotes(updatedNotes);
     };
 
-    const removeNote = (id) => {
-        setNotes(notes.filter(note => note.id !== id));
+    const handleRemoveNote = (index) => {
+        const updatedNotes = [...localNotes];
+        updatedNotes.splice(index, 1);
+        setLocalNotes(updatedNotes);
     };
 
-    const handleSave = () => {
-        onSave(notes.map(note => note.text));
+    const handleSave = async () => {
+        try {
+            const validNotes = localNotes.filter(note => note.trim() !== '');
+            dispatch(setNotes(validNotes));
+            await SQLiteService.setNotes(validNotes); // Save in SQLite
+            onClose();
+        } catch (error) {
+            console.log('Error saving notes:', error);
+        }
     };
 
     const getPlaceholder = (index) => {
@@ -38,15 +50,15 @@ const NotesModal = ({ visible, onClose, onSave, theme, savedNotes }) => {
             "Share your thoughts",
             "Notable experiences recently?",
             "Reflect on your day",
-            "Anything significant to remember?"
+            "Anything significant to remember?",
         ];
-        return placeholders[index] || `Share your thoughts`;
+        return placeholders[index] || "Share your thoughts";
     };
 
     return (
         <Modal
             visible={visible}
-            animationType="slide"
+            animationType="fade"
             transparent={true}
             onRequestClose={onClose}
         >
@@ -62,18 +74,18 @@ const NotesModal = ({ visible, onClose, onSave, theme, savedNotes }) => {
                         </TouchableOpacity>
                     </View>
                     <ScrollView showsVerticalScrollIndicator={false} style={styles.notesContainer}>
-                        {notes.map((note, index) => (
-                            <View key={note.id} style={styles.noteItem}>
+                        {localNotes.map((note, index) => (
+                            <View key={index} style={styles.noteItem}>
                                 <TextInput
                                     style={[styles.input, { backgroundColor: theme.muted, color: theme.foreground }]}
                                     placeholder={getPlaceholder(index)}
                                     placeholderTextColor={theme.mutedForeground}
-                                    value={note.text}
-                                    onChangeText={(text) => updateNote(note.id, text)}
+                                    value={note}
+                                    onChangeText={(text) => handleUpdateNote(index, text)}
                                     multiline
                                 />
-                                {notes.length > 1 && (
-                                    <TouchableOpacity onPress={() => removeNote(note.id)} style={styles.removeButton}>
+                                {localNotes.length > 1 && (
+                                    <TouchableOpacity onPress={() => handleRemoveNote(index)} style={styles.removeButton}>
                                         <Trash2 color={theme.error} size={20} />
                                     </TouchableOpacity>
                                 )}
@@ -82,18 +94,21 @@ const NotesModal = ({ visible, onClose, onSave, theme, savedNotes }) => {
                     </ScrollView>
                     <View style={styles.buttonContainer}>
                         <TouchableOpacity
-                            onPress={addNote}
+                            onPress={handleAddNote}
                             style={[
                                 styles.button,
                                 styles.addButton,
-                                { backgroundColor: theme.muted, opacity: notes.length >= 5 ? 0.5 : 1 }
+                                { backgroundColor: theme.muted, opacity: localNotes.length >= 5 ? 0.5 : 1 }
                             ]}
-                            disabled={notes.length >= 5}
+                            disabled={localNotes.length >= 5}
                         >
                             <Plus color={theme.mutedForeground} size={24} />
                             <Text style={[styles.buttonText, { color: theme.mutedForeground }]}>Add Note</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={handleSave} style={[styles.button, styles.saveButton, { backgroundColor: theme.primary }]}>
+                        <TouchableOpacity
+                            onPress={handleSave}
+                            style={[styles.button, styles.saveButton, { backgroundColor: theme.primary }]}
+                        >
                             <Save color={theme.primaryForeground} size={24} />
                             <Text style={[styles.buttonText, { color: theme.primaryForeground }]}>Save Notes</Text>
                         </TouchableOpacity>

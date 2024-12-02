@@ -5,37 +5,24 @@ import { borderRadius, fontSizes, fonts } from '../constants';
 import useTheme from '../hooks/useTheme';
 import MonthCalendar from '../components/calendar/MonthCalendar';
 import { ChevronLeft, ChevronRight } from 'lucide-react-native';
-import SQLiteService from '../services/SQLiteService';
 import { GestureHandlerRootView, PanGestureHandler, State } from 'react-native-gesture-handler';
+import { useSelector } from 'react-redux';
 
 const CalendarScreen = () => {
     const { theme, isDarkMode } = useTheme();
     const [selectedFilter, setSelectedFilter] = useState('all');
     const [currentMonth, setCurrentMonth] = useState(moment());
-    const [userConfig, setUserConfig] = useState(null);
+    const user = useSelector(state => state.user.user);
     const [slideAnim] = useState(new Animated.Value(0));
 
-    useEffect(() => {
-        const fetchUserConfig = async () => {
-            try {
-                const config = await SQLiteService.getUserConfig();
-                setUserConfig(config);
-            } catch (error) {
-                console.error('Error fetching user config:', error);
-            }
-        };
-        fetchUserConfig();
-    }, []);
-
     const calculateCycleData = useCallback((month) => {
-        if (!userConfig) return [];
-
+        if (!user) return [];
         const data = [];
         const startDate = month.clone().startOf('month');
         const endDate = month.clone().endOf('month');
-        const lastPeriodStart = moment(userConfig.lastPeriodStartDate);
-        const averageCycleLength = userConfig.averageCycleLength;
-        const averagePeriodDuration = userConfig.averagePeriodDuration;
+        const lastPeriodStart = moment(user.lastPeriodStartDate);
+        const averageCycleLength = user.averageCycleLength;
+        const averagePeriodDuration = user.averagePeriodDuration;
 
         let cycleStartDate = lastPeriodStart.clone();
         const daysSinceLastPeriod = moment().diff(lastPeriodStart, 'days');
@@ -66,7 +53,6 @@ const CalendarScreen = () => {
                 }
                 currentDate.add(1, 'days');
             }
-
             currentDate = fertileStartDate.clone();
             while (currentDate.isSameOrBefore(fertileEndDate)) {
                 if (currentDate.isSameOrAfter(startDate) && currentDate.isSameOrBefore(endDate)) {
@@ -106,7 +92,7 @@ const CalendarScreen = () => {
             cycleStartDate.add(averageCycleLength, 'days');
         }
         return data;
-    }, [userConfig]);
+    }, [user]);
 
     const cycleData = useMemo(() => calculateCycleData(currentMonth), [currentMonth, calculateCycleData]);
     const filteredCycleData = useMemo(() => {
@@ -163,16 +149,16 @@ const CalendarScreen = () => {
         });
     };
 
-    const onSwipe = (event) => {
-        if (event.nativeEvent.state === State.END) {
-            const { translationX } = event.nativeEvent;
-            if (translationX > 50) {
-                changeMonth('right');
-            } else if (translationX < -50) {
-                changeMonth('left');
-            }
-        }
-    };
+    // const onSwipe = (event) => {
+    //     if (event.nativeEvent.state === State.END) {
+    //         const { translationX } = event.nativeEvent;
+    //         if (translationX > 50) {
+    //             changeMonth('right');
+    //         } else if (translationX < -50) {
+    //             changeMonth('left');
+    //         }
+    //     }
+    // };
 
     return (
         <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.background }]}>
@@ -193,13 +179,13 @@ const CalendarScreen = () => {
                             <ChevronRight size={20} color={theme.foreground} />
                         </TouchableOpacity>
                     </View>
-                    <GestureHandlerRootView style={{ flex: 1 }}>
-                        <PanGestureHandler onHandlerStateChange={onSwipe}>
-                            <Animated.View style={{ transform: [{ translateX: slideAnim }] }}>
-                                <MonthCalendar month={currentMonth} cycleData={filteredCycleData} selectedFilter={selectedFilter} />
-                            </Animated.View>
-                        </PanGestureHandler>
-                    </GestureHandlerRootView>
+                    {/* <GestureHandlerRootView style={{ flex: 1 }}>
+                        <PanGestureHandler onHandlerStateChange={onSwipe}> */}
+                    <Animated.View style={{ transform: [{ translateX: slideAnim }] }}>
+                        <MonthCalendar month={currentMonth} cycleData={filteredCycleData} selectedFilter={selectedFilter} />
+                    </Animated.View>
+                    {/* </PanGestureHandler>
+                    </GestureHandlerRootView> */}
                 </View>
             </View>
         </SafeAreaView>

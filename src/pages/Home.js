@@ -4,9 +4,7 @@ import { Bell, Droplet, ChevronRight, PenSquare } from 'lucide-react-native';
 import { fonts, fontSizes, borderRadius } from '../constants';
 import useTheme from '../hooks/useTheme';
 import UpcomingEvents from '../components/upcomingEvents/UpcomingEvents';
-import SQLiteService from '../services/SQLiteService';
 import NotesModal from '../modals/noteModal/NotesModal';
-import ApiService from '../services/ApiService';
 import { useSelector } from 'react-redux';
 
 const Home = () => {
@@ -22,7 +20,6 @@ const Home = () => {
     });
     const { tip } = useSelector(state => state.dailyTip);
     const [isNoteModalVisible, setIsNoteModalVisible] = useState(false);
-    const notes = useSelector(state => state.user.user?.notes || []).map(note => note.content);
 
     useEffect(() => {
         if (user) {
@@ -162,9 +159,7 @@ const Home = () => {
             <NotesModal
                 visible={isNoteModalVisible}
                 onClose={handleCloseNoteModal}
-                onSave={handleSaveNotes}
                 theme={theme}
-                savedNotes={notes}
             />
         </View>
     );

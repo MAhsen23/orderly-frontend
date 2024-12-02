@@ -13,6 +13,7 @@ import { useAlert } from '../../contexts/AlertContext';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../redux/features/userSlice';
 import SQLiteService from '../../services/SQLiteService'
+import { setNotes } from '../../redux/features/notesSlice'
 
 export default function Auth() {
     const { theme } = useTheme();
@@ -42,7 +43,6 @@ export default function Auth() {
                 await StorageService.setValue('user', user._id);
 
                 await SQLiteService.setUser(user);
-                await SQLiteService.setNotes(notes);
 
                 const cycles = menstrualCycles.map(cycle => ({
                     startDate: cycle.startDate, endDate: cycle.endDate || null, duration: cycle.duration
@@ -51,6 +51,10 @@ export default function Auth() {
 
                 const lastPeriodStartDate = cycles.length ? cycles[cycles.length - 1].startDate : null;
                 dispatch(setUser({ user: { ...user, lastPeriodStartDate }, token }));
+
+                const formattedNotes = notes.filter(note => note.trim() !== '');
+                dispatch(setNotes(formattedNotes));
+                await SQLiteService.setNotes(formattedNotes);
 
                 navigation.reset({
                     index: 0,
