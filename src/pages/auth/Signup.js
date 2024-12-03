@@ -12,6 +12,7 @@ import InputField from '../../components/inputField/InputField'
 import { useAlert } from '../../contexts/AlertContext'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../../redux/features/userSlice'
+import SQLiteService from '../../services/SQLiteService'
 
 export default function Auth() {
     const { theme } = useTheme();
@@ -44,6 +45,7 @@ export default function Auth() {
                 const response = await ApiService.createUser(userData);
                 if (response.success) {
                     await StorageService.setValue('user', response.user._id);
+                    await SQLiteService.setUser(response.user);
                     dispatch(setUser({ user: response.user, token: null }));
                     navigation.navigate('Verification');
                 }

@@ -112,7 +112,7 @@ const Profile = () => {
                 </View>
                 <View style={styles.section}>
                     <Text allowFontScaling={false} style={[styles.sectionTitle, { color: theme.foreground }]}>Security</Text>
-                    <View style={[styles.menuItem, { backgroundColor: theme.muted }]}>
+                    {/* <View style={[styles.menuItem, { backgroundColor: theme.muted }]}>
                         <Lock color={theme.primary} size={24} />
                         <View style={styles.menuItemTextContainer}>
                             <Text allowFontScaling={false} style={[styles.menuItemText, { color: theme.foreground }]}>Use Access Code</Text>
@@ -124,8 +124,8 @@ const Profile = () => {
                             onValueChange={toggleAccessCode}
                             value={false}
                         />
-                    </View>
-                    <MenuItem icon={Key} label={"Access Code"} onPress={() => { navigation.navigate('AccessCode') }} />
+                    </View> */}
+                    <MenuItem icon={Key} label={"Access Code"} onPress={showComingSoonAlert} />
                 </View>
                 <View style={styles.section}>
                     <Text allowFontScaling={false} style={[styles.sectionTitle, { color: theme.foreground }]}>About</Text>

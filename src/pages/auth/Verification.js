@@ -19,6 +19,7 @@ import ApiService from '../../services/ApiService';
 import { setUser } from '../../redux/features/userSlice';
 import StorageService from '../../services/StorageService';
 import { useAlert } from '../../contexts/AlertContext';
+import SQLiteService from '../../services/SQLiteService';
 
 const OTP_LENGTH = 6;
 const { width } = Dimensions.get('window');
@@ -85,8 +86,8 @@ const Verification = () => {
             if (response.success) {
                 const token = response.token;
                 const user = response.user;
-                await StorageService.setValue('user', user);
                 await StorageService.setValue('token', token);
+                await SQLiteService.setUser(user);
                 dispatch(setUser({ user, token }));
                 navigation.reset({
                     index: 0,

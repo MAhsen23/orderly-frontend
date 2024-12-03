@@ -63,9 +63,9 @@ function AppStack() {
             const menstrualCycles = await SQLiteService.getMenstrualCycles();
             const lastPeriodStartDate = menstrualCycles.length ? menstrualCycles[menstrualCycles.length - 1].startDate : null;
             dispatch(setUser({ user: { ...user, lastPeriodStartDate }, token: await StorageService.getValue('token') }));
-            return true;
+            return user;
         } catch (error) {
-            return false;
+            return null;
         }
     };
 
@@ -75,9 +75,9 @@ function AppStack() {
             if (user) {
                 const token = await StorageService.getValue('token');
                 if (token) {
-                    await loadUserData(user);
+                    const user = await loadUserData();
                     await updateDailyTip();
-                    setInitialRoute('Main');
+                    setInitialRoute(user?.isProfileComplete ? 'Main' : 'Setup');
                 } else {
                     setInitialRoute('Auth');
                 }

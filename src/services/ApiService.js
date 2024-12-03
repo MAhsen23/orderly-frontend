@@ -3,7 +3,7 @@ import { DEV_API_URL, PROD_API_URL } from '../constants';
 import StorageService from './StorageService';
 
 const api = axios.create({
-    baseURL: DEV_API_URL,
+    baseURL: PROD_API_URL,
 });
 
 api.interceptors.request.use(async (config) => {

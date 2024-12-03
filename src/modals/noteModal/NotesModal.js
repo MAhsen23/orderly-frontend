@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
+import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, KeyboardAvoidingView, Platform, ActivityIndicator } from 'react-native';
 import { X, Plus, Save, Trash2 } from 'lucide-react-native';
 import { fonts, fontSizes, borderRadius } from '../../constants';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +11,7 @@ const NotesModal = ({ visible, onClose, theme }) => {
     const dispatch = useDispatch();
     const { notes } = useSelector(state => state.notes);
     const [localNotes, setLocalNotes] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setLocalNotes(notes.length > 0 ? [...notes] : ['']);
@@ -37,14 +38,21 @@ const NotesModal = ({ visible, onClose, theme }) => {
     const handleSave = async () => {
         try {
             const validNotes = localNotes.filter(note => note.trim() !== '');
-            dispatch(setNotes(validNotes));
-            await SQLiteService.setNotes(validNotes);
-            await ApiService.notes(validNotes);
+            if (JSON.stringify(validNotes) !== JSON.stringify(notes)) {
+                setLoading(true);
+                dispatch(setNotes(validNotes));
+                await SQLiteService.setNotes(validNotes);
+                await ApiService.notes(validNotes);
+                onClose();
+            }
             onClose();
         } catch (error) {
-            console.log('Error saving notes:', error);
+
+        } finally {
+            setLoading(false);
         }
     };
+
 
     const getPlaceholder = (index) => {
         const placeholders = [
@@ -110,9 +118,16 @@ const NotesModal = ({ visible, onClose, theme }) => {
                         <TouchableOpacity
                             onPress={handleSave}
                             style={[styles.button, styles.saveButton, { backgroundColor: theme.primary }]}
+                            disabled={loading}
                         >
-                            <Save color={theme.primaryForeground} size={24} />
-                            <Text style={[styles.buttonText, { color: theme.primaryForeground }]}>Save Notes</Text>
+                            {loading ? (
+                                <ActivityIndicator color={theme.primaryForeground} size={24} />
+                            ) : (
+                                <>
+                                    <Save color={theme.primaryForeground} size={24} />
+                                    <Text style={[styles.buttonText, { color: theme.primaryForeground }]}>Save Notes</Text>
+                                </>
+                            )}
                         </TouchableOpacity>
                     </View>
                 </View>

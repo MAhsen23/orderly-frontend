@@ -9,9 +9,15 @@ import ApiService from '../services/ApiService';
 import StorageService from '../services/StorageService';
 import SQLiteService from '../services/SQLiteService';
 import SettingHeader from '../components/header/SettingHeader';
+import { setNotes } from '../redux/features/notesSlice';
+import { setUser } from '../redux/features/userSlice';
+import { useAlert } from '../contexts/AlertContext';
+import { useDispatch } from 'react-redux';
 
 const Setup = () => {
     const { theme } = useTheme();
+    const { showAlert } = useAlert();
+    const dispatch = useDispatch();
     const navigation = useNavigation();
     const [currentStep, setCurrentStep] = useState(0);
     const [selectedYear, setSelectedYear] = useState(null);
@@ -74,29 +80,32 @@ const Setup = () => {
         } else {
             setIsLoading(true);
             try {
-                const user = await StorageService.getValue('user');
-                const response = await ApiService.profileSetup({ userId: user, birthYear: selectedYear, menstrualCycle: selectedCycleType, averageCycleLength: selectedCycleLength, lastPeriodStartDate: selectedDate, averagePeriodDuration: selectedPeriodLength });
-                if (response.message === "success") {
-                    await StorageService.setValue('isProfileComplete', true);
-                    const userConfig = {
-                        name: response.user.name,
-                        email: response.user.email,
-                        profilePicture: response.user.profilePicture || '',
-                        birthYear: selectedYear || null,
-                        averageCycleLength: selectedCycleLength || null,
-                        lastPeriodStartDate: selectedDate || '',
-                        averagePeriodDuration: selectedPeriodLength || null,
-                        isDataSynced: 1
-                    };
-                    SQLiteService.setUserConfig(userConfig).then(() => {
-                        navigation.reset({
-                            index: 0,
-                            routes: [{ name: 'Main' }],
-                        });
+                const response = await ApiService.profileSetup({ birthYear: selectedYear, cycleType: selectedCycleType, averageCycleLength: selectedCycleLength, lastPeriodStartDate: selectedDate, averagePeriodDuration: selectedPeriodLength });
+                if (response.success) {
+                    const { user, menstrualCycles, notes } = response;
+                    await SQLiteService.setUser(user);
+
+                    const cycles = menstrualCycles.map(cycle => ({
+                        startDate: cycle.startDate, endDate: cycle.endDate || null, duration: cycle.duration
+                    }));
+                    await SQLiteService.setMenstrualCycles(cycles);
+
+                    const lastPeriodStartDate = cycles.length ? cycles[cycles.length - 1].startDate : null;
+                    dispatch(setUser({ user: { ...user, lastPeriodStartDate }, token: await StorageService.getValue('token') }));
+                    const formattedNotes = notes.filter(note => note.trim() !== '');
+                    dispatch(setNotes(formattedNotes));
+                    await SQLiteService.setNotes(formattedNotes);
+                    navigation.reset({
+                        index: 0,
+                        routes: [{ name: 'Main' }],
                     });
                 }
             } catch (error) {
-                console.log('Error during profile setup:', error);
+                showAlert({
+                    type: 'error',
+                    title: 'Error',
+                    message: error.response?.data?.message || 'An error cccurred during profile setup',
+                });
             } finally {
                 setIsLoading(false);
             }

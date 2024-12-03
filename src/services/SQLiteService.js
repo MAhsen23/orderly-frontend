@@ -40,7 +40,7 @@ const SQLiteService = {
                 tx.executeSql(
                     `INSERT OR REPLACE INTO user (_id, name, email, isProfileComplete, isVerified, birthYear, averageCycleLength, averagePeriodDuration, cycleType) 
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);`,
-                    [user._id, user.name, user.email, user.isProfileComplete ? 1 : 0, user.isVerified ? 1 : 0, user.birthYear, user.averageCycleLength, user.averagePeriodDuration, user.cycleType],
+                    [user._id, user.name, user.email, user.isProfileComplete ? 1 : 0, user.isVerified ? 1 : 0, user.birthYear || null, user.averageCycleLength || null, user.averagePeriodDuration || null, user.cycleType || null],
                     (_, result) => resolve(result),
                     (_, error) => reject(error)
                 );
