@@ -5,6 +5,7 @@ import { fonts, fontSizes, borderRadius } from '../../constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { setNotes } from '../../redux/features/notesSlice';
 import SQLiteService from '../../services/SQLiteService';
+import ApiService from '../../services/ApiService';
 
 const NotesModal = ({ visible, onClose, theme }) => {
     const dispatch = useDispatch();
@@ -37,7 +38,8 @@ const NotesModal = ({ visible, onClose, theme }) => {
         try {
             const validNotes = localNotes.filter(note => note.trim() !== '');
             dispatch(setNotes(validNotes));
-            await SQLiteService.setNotes(validNotes); // Save in SQLite
+            await SQLiteService.setNotes(validNotes);
+            await ApiService.notes(validNotes);
             onClose();
         } catch (error) {
             console.log('Error saving notes:', error);

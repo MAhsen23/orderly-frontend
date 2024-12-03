@@ -11,7 +11,7 @@ import Button from '../../components/button/Button'
 import InputField from '../../components/inputField/InputField'
 import { useAlert } from '../../contexts/AlertContext'
 import { useDispatch } from 'react-redux'
-import { loginSuccess } from '../../redux/features/userSlice'
+import { setUser } from '../../redux/features/userSlice'
 
 export default function Auth() {
     const { theme } = useTheme();
@@ -44,11 +44,11 @@ export default function Auth() {
                 const response = await ApiService.createUser(userData);
                 if (response.success) {
                     await StorageService.setValue('user', response.user._id);
+                    dispatch(setUser({ user: response.user, token: null }));
                     navigation.navigate('Verification');
                 }
             } catch (error) {
-                console.log(error)
-                showAlert({ type: 'error', title: 'Error', message: error.response?.data?.error || 'An error cccurred during registration' });
+                showAlert({ type: 'error', title: 'Error', message: error.response?.data?.message || 'An error cccurred during registration' });
             } finally {
                 setIsLoading(false);
             }

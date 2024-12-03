@@ -6,10 +6,8 @@ import {
     TouchableOpacity,
     TextInput,
     Keyboard,
-    Modal,
     Dimensions,
     SafeAreaView,
-    Alert,
 } from 'react-native';
 import { borderRadius, fonts, fontSizes } from '../../constants';
 import { ChevronLeft } from 'lucide-react-native';
@@ -33,7 +31,7 @@ const Verification = () => {
     const [focusedIndex, setFocusedIndex] = useState(0);
     const inputRefs = useRef([]);
     const navigation = useNavigation();
-    const user = useSelector((state) => state.auth.user);
+    const user = useSelector(state => state.user.user);
     const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false)
 
@@ -99,7 +97,7 @@ const Verification = () => {
             showAlert({
                 type: 'error',
                 title: 'Error',
-                message: error.response?.data?.error || 'An error cccurred during verification',
+                message: error.response?.data?.message || 'An error cccurred during verification',
             });
         }
         finally {

@@ -65,7 +65,7 @@ export default function Auth() {
             showAlert({
                 type: 'error',
                 title: 'Error',
-                message: loginError.response?.data?.error || 'An error cccurred during login',
+                message: loginError.response?.data?.message || 'An error cccurred during login',
             });
         } finally {
             setIsLoading(false);
@@ -112,7 +112,7 @@ export default function Auth() {
                     />
 
                     <TouchableOpacity onPress={() => {
-                        // navigation.navigate('Signup')
+                        navigation.navigate('Signup')
                     }} style={styles.toggleAuthButton}>
                         <Text allowFontScaling={false} style={[styles.toggleAuthText, { color: theme.mutedForeground }]}>
                             Don't have an account? Register

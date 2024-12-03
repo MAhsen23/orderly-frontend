@@ -78,6 +78,8 @@ function AppStack() {
                     await loadUserData(user);
                     await updateDailyTip();
                     setInitialRoute('Main');
+                } else {
+                    setInitialRoute('Auth');
                 }
             } else {
                 const isFirstLaunch = await StorageService.getValue('isFirstLaunch');

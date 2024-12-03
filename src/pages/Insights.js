@@ -16,10 +16,10 @@ const Insights = () => {
     };
 
     const quickInsightItems = [
-        { icon: Calendar, color: theme.primary, label: 'Average Cycle', value: `${user.averageCycleLength} days` },
+        { icon: Calendar, color: theme.primary, label: 'Average Cycle', value: `${user?.averageCycleLength} days` },
         { icon: Droplet, color: isDarkMode ? theme.secondaryLight : theme.secondary, label: 'Average Flow', value: 'Moderate' },
         { icon: Heart, color: theme.mutedForeground, label: 'Fertile Window', value: '5 days' },
-        { icon: Moon, color: isDarkMode ? theme.accentLight : theme.accent, label: 'Avg. Period Length', value: `${user.averagePeriodDuration} days` },
+        { icon: Moon, color: isDarkMode ? theme.accentLight : theme.accent, label: 'Avg. Period Length', value: `${user?.averagePeriodDuration} days` },
     ];
 
     const additionalFeatures = [

@@ -4,6 +4,7 @@ import { fonts, fontSizes, borderRadius } from '../constants';
 import useTheme from '../hooks/useTheme';
 import { Calendar, Activity, Shield } from 'react-native-feather';
 import StorageService from '../services/StorageService';
+import Button from '../components/button/Button';
 
 const Welcome = ({ navigation }) => {
     const { theme } = useTheme();
@@ -87,14 +88,10 @@ const Welcome = ({ navigation }) => {
                     </View>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity
-                        style={[styles.button, { backgroundColor: theme.primary }]}
+                    <Button
+                        text={currentPage === onboardingData.length - 1 ? isUserExist ? 'Finish' : "Get Started" : "Next"}
                         onPress={handleNext}
-                    >
-                        <Text allowFontScaling={false} style={[styles.buttonText, { color: theme.primaryForeground }]}>
-                            {currentPage === onboardingData.length - 1 ? isUserExist ? 'Finish' : "Get Started" : "Next"}
-                        </Text>
-                    </TouchableOpacity>
+                    />
                 </View>
             </View>
         </SafeAreaView>
