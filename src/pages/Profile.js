@@ -175,7 +175,6 @@ const styles = StyleSheet.create({
     menuItemText: {
         fontSize: fontSizes.base,
         fontFamily: fonts.medium,
-        marginTop: 3,
     },
 });
 

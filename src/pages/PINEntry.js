@@ -234,7 +234,6 @@ const styles = StyleSheet.create({
     numberText: {
         fontSize: fontSizes['2xl'],
         fontFamily: fonts.semibold,
-        marginTop: 3,
     },
 });
 

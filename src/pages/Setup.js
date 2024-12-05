@@ -342,7 +342,6 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: fontSizes.base,
         fontFamily: fonts.semibold,
-        marginTop: 3,
     },
     yearList: {
         flex: 1,
@@ -358,7 +357,6 @@ const styles = StyleSheet.create({
     yearText: {
         fontSize: fontSizes.lg,
         fontFamily: fonts.medium,
-        marginTop: 3,
     },
     cycleTypeContainer: {
         flex: 1,
@@ -374,7 +372,6 @@ const styles = StyleSheet.create({
     cycleTypeText: {
         fontSize: fontSizes.lg,
         fontFamily: fonts.medium,
-        marginTop: 3,
     },
     cycleLengthList: {
         flex: 1,
@@ -390,7 +387,6 @@ const styles = StyleSheet.create({
     cycleLengthText: {
         fontSize: fontSizes.lg,
         fontFamily: fonts.medium,
-        marginTop: 3,
     },
     calendar: {
         borderWidth: 1,
@@ -411,6 +407,5 @@ const styles = StyleSheet.create({
     periodLengthText: {
         fontSize: fontSizes.lg,
         fontFamily: fonts.medium,
-        marginTop: 3,
     },
 });

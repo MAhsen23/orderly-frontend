@@ -81,11 +81,6 @@ const Home = () => {
     const handleCloseNoteModal = () => {
         setIsNoteModalVisible(false);
     };
-
-    const handleSaveNotes = async (updatedNotes) => {
-
-    };
-
     return (
         <View style={[styles.container, { backgroundColor: theme.background }]}>
             <View style={styles.header}>

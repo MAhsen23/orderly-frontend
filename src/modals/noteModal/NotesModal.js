@@ -202,7 +202,6 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         marginLeft: 10,
-        marginTop: 3,
         fontSize: fontSizes.base,
         fontFamily: fonts.semibold,
     },

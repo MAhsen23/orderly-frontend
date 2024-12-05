@@ -49,14 +49,24 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Poppins Black.ttf</string>
-		<string>Poppins Bold.ttf</string>
-		<string>Poppins ExtraBold.ttf</string>
-		<string>Poppins Light.ttf</string>
-		<string>Poppins Medium.ttf</string>
-		<string>Poppins Regular.ttf</string>
-		<string>Poppins SemiBold.ttf</string>
-		<string>Poppins Thin.ttf</string>
+		<string>Geist Black.ttf</string>
+		<string>Geist Bold.ttf</string>
+		<string>Geist ExtraBold.ttf</string>
+		<string>Geist ExtraLight.ttf</string>
+		<string>Geist Light.ttf</string>
+		<string>Geist Medium.ttf</string>
+		<string>Geist Regular.ttf</string>
+		<string>Geist SemiBold.ttf</string>
+		<string>Geist Thin.ttf</string>
+		<string>GeistMono Black.ttf</string>
+		<string>GeistMono Bold.ttf</string>
+		<string>GeistMono Light.ttf</string>
+		<string>GeistMono Medium.ttf</string>
+		<string>GeistMono Regular.ttf</string>
+		<string>GeistMono SemiBold.ttf</string>
+		<string>GeistMono Thin.ttf</string>
+		<string>GeistMono UltraBlack.ttf</string>
+		<string>GeistMono UltraLight.ttf</string>
 	</array>
 </dict>
 </plist>

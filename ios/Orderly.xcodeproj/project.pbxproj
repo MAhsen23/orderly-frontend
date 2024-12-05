@@ -14,14 +14,24 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-Orderly-OrderlyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Orderly-OrderlyTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		BB57A1087ACC45848CB79A63 /* Poppins Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0243968DEDE04DEA8C54CD7C /* Poppins Black.ttf */; };
-		9E068784BDFA462DA83AAF34 /* Poppins Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5477F6158964A0782DC6B7C /* Poppins Bold.ttf */; };
-		CD6FC29545DD4F23AFD0F2E5 /* Poppins ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B887BFAEA15146919DDE494F /* Poppins ExtraBold.ttf */; };
-		85D4ADCD9C0043D8BDE2FD7C /* Poppins Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52B8EABB67BB422897D31BEF /* Poppins Light.ttf */; };
-		B27B5C7B43C54212853F8000 /* Poppins Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FCCF61535EAF401EAFA8B158 /* Poppins Medium.ttf */; };
-		69AEA1FDDC7E404B9C6C07F3 /* Poppins Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20E3302ED6CD4EF5ADCF7861 /* Poppins Regular.ttf */; };
-		DC68F5A8FEA24513B8F92441 /* Poppins SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A119AC7FAE44D1B7CB9780 /* Poppins SemiBold.ttf */; };
-		F978CD9DA9E14A9C95390048 /* Poppins Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 16EB543154D14CA394703F53 /* Poppins Thin.ttf */; };
+		ABFC5F1709E941EBBA203898 /* Geist Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D72C39BA64354561A8F51758 /* Geist Black.ttf */; };
+		88EB62232449409188616F8C /* Geist Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE17846746F24B00A36B6ECA /* Geist Bold.ttf */; };
+		5257CD3DD670409699EA5BAD /* Geist ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA4458C0D65B4B859D7D138F /* Geist ExtraBold.ttf */; };
+		91B531B85A994CA3B0AE43C2 /* Geist ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25F4593445F140839CD841D5 /* Geist ExtraLight.ttf */; };
+		31152B80F3CA4E4D8EC02B99 /* Geist Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8415CCDEA93F4291992F641D /* Geist Light.ttf */; };
+		A365EEC3BDB64254A28A375D /* Geist Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C2D4E920CD94F6CA0AABD2F /* Geist Medium.ttf */; };
+		E0B411E8518A439F88DDBEDD /* Geist Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 609DAC251B33430489143E01 /* Geist Regular.ttf */; };
+		19D9978BC4AD4F8D91B3ADA9 /* Geist SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0880B598E39F444B8B11C4D8 /* Geist SemiBold.ttf */; };
+		BE0599F82200469E9EC55323 /* Geist Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FE1770CA5B48422086F9FBDB /* Geist Thin.ttf */; };
+		3746BA028AC0447882D55AD1 /* GeistMono Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D1A5C66D39846F8AE9BE29C /* GeistMono Black.ttf */; };
+		51319B45CAF0412FBCEB2A47 /* GeistMono Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2ADEBD9842B34A0C9481560B /* GeistMono Bold.ttf */; };
+		97948B0B90FA4790B1EA63EC /* GeistMono Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32CFE60520654911B6DD2EF6 /* GeistMono Light.ttf */; };
+		6D75522F9DB34294B5CA25AE /* GeistMono Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 123453A6E1194DC182951E03 /* GeistMono Medium.ttf */; };
+		81F918AE8DB0422CB49D4506 /* GeistMono Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B95FB1A91CF941CE902935FA /* GeistMono Regular.ttf */; };
+		0EF5933476694376930AE376 /* GeistMono SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5B4C5478ED284EF8BDA857E0 /* GeistMono SemiBold.ttf */; };
+		DC184DF3DFDF4C98BB13A30E /* GeistMono Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 651376E106F54D0186C4C706 /* GeistMono Thin.ttf */; };
+		5B694D4B8E9F4169B78C6793 /* GeistMono UltraBlack.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FEA8BFDC42AE4F69994A9E23 /* GeistMono UltraBlack.ttf */; };
+		3827E8FEFB29411186BAF1E2 /* GeistMono UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FF80383B36B4E918360F0D1 /* GeistMono UltraLight.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,14 +63,24 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Orderly/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Orderly-OrderlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Orderly-OrderlyTests.release.xcconfig"; path = "Target Support Files/Pods-Orderly-OrderlyTests/Pods-Orderly-OrderlyTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		0243968DEDE04DEA8C54CD7C /* Poppins Black.ttf */ = {isa = PBXFileReference; name = "Poppins Black.ttf"; path = "../src/assets/fonts/Poppins Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		D5477F6158964A0782DC6B7C /* Poppins Bold.ttf */ = {isa = PBXFileReference; name = "Poppins Bold.ttf"; path = "../src/assets/fonts/Poppins Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B887BFAEA15146919DDE494F /* Poppins ExtraBold.ttf */ = {isa = PBXFileReference; name = "Poppins ExtraBold.ttf"; path = "../src/assets/fonts/Poppins ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		52B8EABB67BB422897D31BEF /* Poppins Light.ttf */ = {isa = PBXFileReference; name = "Poppins Light.ttf"; path = "../src/assets/fonts/Poppins Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FCCF61535EAF401EAFA8B158 /* Poppins Medium.ttf */ = {isa = PBXFileReference; name = "Poppins Medium.ttf"; path = "../src/assets/fonts/Poppins Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		20E3302ED6CD4EF5ADCF7861 /* Poppins Regular.ttf */ = {isa = PBXFileReference; name = "Poppins Regular.ttf"; path = "../src/assets/fonts/Poppins Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E5A119AC7FAE44D1B7CB9780 /* Poppins SemiBold.ttf */ = {isa = PBXFileReference; name = "Poppins SemiBold.ttf"; path = "../src/assets/fonts/Poppins SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		16EB543154D14CA394703F53 /* Poppins Thin.ttf */ = {isa = PBXFileReference; name = "Poppins Thin.ttf"; path = "../src/assets/fonts/Poppins Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D72C39BA64354561A8F51758 /* Geist Black.ttf */ = {isa = PBXFileReference; name = "Geist Black.ttf"; path = "../src/assets/fonts/Geist Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AE17846746F24B00A36B6ECA /* Geist Bold.ttf */ = {isa = PBXFileReference; name = "Geist Bold.ttf"; path = "../src/assets/fonts/Geist Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FA4458C0D65B4B859D7D138F /* Geist ExtraBold.ttf */ = {isa = PBXFileReference; name = "Geist ExtraBold.ttf"; path = "../src/assets/fonts/Geist ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		25F4593445F140839CD841D5 /* Geist ExtraLight.ttf */ = {isa = PBXFileReference; name = "Geist ExtraLight.ttf"; path = "../src/assets/fonts/Geist ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8415CCDEA93F4291992F641D /* Geist Light.ttf */ = {isa = PBXFileReference; name = "Geist Light.ttf"; path = "../src/assets/fonts/Geist Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4C2D4E920CD94F6CA0AABD2F /* Geist Medium.ttf */ = {isa = PBXFileReference; name = "Geist Medium.ttf"; path = "../src/assets/fonts/Geist Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		609DAC251B33430489143E01 /* Geist Regular.ttf */ = {isa = PBXFileReference; name = "Geist Regular.ttf"; path = "../src/assets/fonts/Geist Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0880B598E39F444B8B11C4D8 /* Geist SemiBold.ttf */ = {isa = PBXFileReference; name = "Geist SemiBold.ttf"; path = "../src/assets/fonts/Geist SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FE1770CA5B48422086F9FBDB /* Geist Thin.ttf */ = {isa = PBXFileReference; name = "Geist Thin.ttf"; path = "../src/assets/fonts/Geist Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7D1A5C66D39846F8AE9BE29C /* GeistMono Black.ttf */ = {isa = PBXFileReference; name = "GeistMono Black.ttf"; path = "../src/assets/fonts/GeistMono Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2ADEBD9842B34A0C9481560B /* GeistMono Bold.ttf */ = {isa = PBXFileReference; name = "GeistMono Bold.ttf"; path = "../src/assets/fonts/GeistMono Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		32CFE60520654911B6DD2EF6 /* GeistMono Light.ttf */ = {isa = PBXFileReference; name = "GeistMono Light.ttf"; path = "../src/assets/fonts/GeistMono Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		123453A6E1194DC182951E03 /* GeistMono Medium.ttf */ = {isa = PBXFileReference; name = "GeistMono Medium.ttf"; path = "../src/assets/fonts/GeistMono Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B95FB1A91CF941CE902935FA /* GeistMono Regular.ttf */ = {isa = PBXFileReference; name = "GeistMono Regular.ttf"; path = "../src/assets/fonts/GeistMono Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5B4C5478ED284EF8BDA857E0 /* GeistMono SemiBold.ttf */ = {isa = PBXFileReference; name = "GeistMono SemiBold.ttf"; path = "../src/assets/fonts/GeistMono SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		651376E106F54D0186C4C706 /* GeistMono Thin.ttf */ = {isa = PBXFileReference; name = "GeistMono Thin.ttf"; path = "../src/assets/fonts/GeistMono Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FEA8BFDC42AE4F69994A9E23 /* GeistMono UltraBlack.ttf */ = {isa = PBXFileReference; name = "GeistMono UltraBlack.ttf"; path = "../src/assets/fonts/GeistMono UltraBlack.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6FF80383B36B4E918360F0D1 /* GeistMono UltraLight.ttf */ = {isa = PBXFileReference; name = "GeistMono UltraLight.ttf"; path = "../src/assets/fonts/GeistMono UltraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,14 +190,24 @@
 		7F8CF364121B4FF9858D49B1 /* Resources */ = {
 			isa = "PBXGroup";
 			children = (
-				0243968DEDE04DEA8C54CD7C /* Poppins Black.ttf */,
-				D5477F6158964A0782DC6B7C /* Poppins Bold.ttf */,
-				B887BFAEA15146919DDE494F /* Poppins ExtraBold.ttf */,
-				52B8EABB67BB422897D31BEF /* Poppins Light.ttf */,
-				FCCF61535EAF401EAFA8B158 /* Poppins Medium.ttf */,
-				20E3302ED6CD4EF5ADCF7861 /* Poppins Regular.ttf */,
-				E5A119AC7FAE44D1B7CB9780 /* Poppins SemiBold.ttf */,
-				16EB543154D14CA394703F53 /* Poppins Thin.ttf */,
+				D72C39BA64354561A8F51758 /* Geist Black.ttf */,
+				AE17846746F24B00A36B6ECA /* Geist Bold.ttf */,
+				FA4458C0D65B4B859D7D138F /* Geist ExtraBold.ttf */,
+				25F4593445F140839CD841D5 /* Geist ExtraLight.ttf */,
+				8415CCDEA93F4291992F641D /* Geist Light.ttf */,
+				4C2D4E920CD94F6CA0AABD2F /* Geist Medium.ttf */,
+				609DAC251B33430489143E01 /* Geist Regular.ttf */,
+				0880B598E39F444B8B11C4D8 /* Geist SemiBold.ttf */,
+				FE1770CA5B48422086F9FBDB /* Geist Thin.ttf */,
+				7D1A5C66D39846F8AE9BE29C /* GeistMono Black.ttf */,
+				2ADEBD9842B34A0C9481560B /* GeistMono Bold.ttf */,
+				32CFE60520654911B6DD2EF6 /* GeistMono Light.ttf */,
+				123453A6E1194DC182951E03 /* GeistMono Medium.ttf */,
+				B95FB1A91CF941CE902935FA /* GeistMono Regular.ttf */,
+				5B4C5478ED284EF8BDA857E0 /* GeistMono SemiBold.ttf */,
+				651376E106F54D0186C4C706 /* GeistMono Thin.ttf */,
+				FEA8BFDC42AE4F69994A9E23 /* GeistMono UltraBlack.ttf */,
+				6FF80383B36B4E918360F0D1 /* GeistMono UltraLight.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -278,14 +308,24 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				BB57A1087ACC45848CB79A63 /* Poppins Black.ttf in Resources */,
-				9E068784BDFA462DA83AAF34 /* Poppins Bold.ttf in Resources */,
-				CD6FC29545DD4F23AFD0F2E5 /* Poppins ExtraBold.ttf in Resources */,
-				85D4ADCD9C0043D8BDE2FD7C /* Poppins Light.ttf in Resources */,
-				B27B5C7B43C54212853F8000 /* Poppins Medium.ttf in Resources */,
-				69AEA1FDDC7E404B9C6C07F3 /* Poppins Regular.ttf in Resources */,
-				DC68F5A8FEA24513B8F92441 /* Poppins SemiBold.ttf in Resources */,
-				F978CD9DA9E14A9C95390048 /* Poppins Thin.ttf in Resources */,
+				ABFC5F1709E941EBBA203898 /* Geist Black.ttf in Resources */,
+				88EB62232449409188616F8C /* Geist Bold.ttf in Resources */,
+				5257CD3DD670409699EA5BAD /* Geist ExtraBold.ttf in Resources */,
+				91B531B85A994CA3B0AE43C2 /* Geist ExtraLight.ttf in Resources */,
+				31152B80F3CA4E4D8EC02B99 /* Geist Light.ttf in Resources */,
+				A365EEC3BDB64254A28A375D /* Geist Medium.ttf in Resources */,
+				E0B411E8518A439F88DDBEDD /* Geist Regular.ttf in Resources */,
+				19D9978BC4AD4F8D91B3ADA9 /* Geist SemiBold.ttf in Resources */,
+				BE0599F82200469E9EC55323 /* Geist Thin.ttf in Resources */,
+				3746BA028AC0447882D55AD1 /* GeistMono Black.ttf in Resources */,
+				51319B45CAF0412FBCEB2A47 /* GeistMono Bold.ttf in Resources */,
+				97948B0B90FA4790B1EA63EC /* GeistMono Light.ttf in Resources */,
+				6D75522F9DB34294B5CA25AE /* GeistMono Medium.ttf in Resources */,
+				81F918AE8DB0422CB49D4506 /* GeistMono Regular.ttf in Resources */,
+				0EF5933476694376930AE376 /* GeistMono SemiBold.ttf in Resources */,
+				DC184DF3DFDF4C98BB13A30E /* GeistMono Thin.ttf in Resources */,
+				5B694D4B8E9F4169B78C6793 /* GeistMono UltraBlack.ttf in Resources */,
+				3827E8FEFB29411186BAF1E2 /* GeistMono UltraLight.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

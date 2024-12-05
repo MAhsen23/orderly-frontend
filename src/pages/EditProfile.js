@@ -167,7 +167,6 @@ const styles = StyleSheet.create({
     buttonText: {
         fontSize: fontSizes.base,
         fontFamily: fonts.semibold,
-        marginTop: 3,
     },
 });
 

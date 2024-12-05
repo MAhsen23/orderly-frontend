@@ -78,7 +78,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 8,
         fontSize: fontSizes.sm,
         fontFamily: fonts.normal,
-        marginTop: 3,
     },
 });
 

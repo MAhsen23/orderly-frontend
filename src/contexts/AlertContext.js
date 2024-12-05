@@ -109,8 +109,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: fontSizes.lg,
         fontFamily: fonts.semibold,
-        // marginLeft: 10,
-        // marginTop: 3,
     },
     message: {
         fontSize: fontSizes.base,

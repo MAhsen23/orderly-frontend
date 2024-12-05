@@ -44,22 +44,23 @@ const colors = {
 };
 
 const fontSizes = {
-    xs: SCREEN_WIDTH * 0.026,
-    sm: SCREEN_WIDTH * 0.030,
-    base: SCREEN_WIDTH * 0.034,
-    lg: SCREEN_WIDTH * 0.038,
-    xl: SCREEN_WIDTH * 0.042,
-    '2xl': SCREEN_WIDTH * 0.050,
-    '3xl': SCREEN_WIDTH * 0.062,
-    '4xl': SCREEN_WIDTH * 0.074,
-    '5xl': SCREEN_WIDTH * 0.098,
+    xs: SCREEN_WIDTH * 0.027,
+    sm: SCREEN_WIDTH * 0.031,
+    base: SCREEN_WIDTH * 0.035,
+    lg: SCREEN_WIDTH * 0.039,
+    xl: SCREEN_WIDTH * 0.043,
+    '2xl': SCREEN_WIDTH * 0.051,
+    '3xl': SCREEN_WIDTH * 0.063,
+    '4xl': SCREEN_WIDTH * 0.075,
+    '5xl': SCREEN_WIDTH * 0.099,
 };
 
 const fonts = {
-    normal: 'Poppins Regular',
-    medium: 'Poppins Medium',
-    semibold: 'Poppins SemiBold',
-    bold: 'Poppins Bold',
+    normal: 'Geist-Regular',
+    medium: 'Geist-Medium',
+    semibold: 'Geist-SemiBold',
+    bold: 'Geist-Bold',
+    extrabold: 'Geist-ExtraBold'
 };
 
 const lineHeights = {
